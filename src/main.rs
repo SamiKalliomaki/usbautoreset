@@ -41,6 +41,7 @@ fn main() {
             let device = caps.get(1).unwrap().as_str();
             println!("Device: {}", device);
 
+            sleep(std::time::Duration::from_secs(5));
             {
                 let mut file = File::options()
                     .read(false)
@@ -50,7 +51,7 @@ fn main() {
                 file.write_all(device.as_bytes())
                     .expect("Failed to write to unbind file");
             }
-            sleep(std::time::Duration::from_secs(1));
+            sleep(std::time::Duration::from_secs(3));
             {
                 let mut file = File::options()
                     .read(false)
@@ -61,7 +62,7 @@ fn main() {
                     .expect("Failed to write to bind file");
             }
 
-            disabled_until = Instant::now() + std::time::Duration::from_secs(60);
+            disabled_until = Instant::now() + std::time::Duration::from_secs(20);
         }
     }
 }

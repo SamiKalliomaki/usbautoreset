@@ -1,0 +1,12 @@
+[package]
+name = "usbautoreset"
+version = "0.1.1"
+edition = "2021"
+license = "MIT"
+description = "Tool to automatically reset USB devices on error"
+repository = "https://github.com/SamiKalliomaki/usbautoreset"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+regex = "1.10.4"

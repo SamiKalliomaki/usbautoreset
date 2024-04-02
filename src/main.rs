@@ -2,7 +2,7 @@ use std::{
     fs::File,
     io::{BufRead, Write},
     process::{Command, Stdio},
-    time::Instant,
+    time::Instant, thread::sleep,
 };
 
 use regex::Regex;
@@ -50,6 +50,7 @@ fn main() {
                 file.write_all(device.as_bytes())
                     .expect("Failed to write to unbind file");
             }
+            sleep(std::time::Duration::from_secs(1));
             {
                 let mut file = File::options()
                     .read(false)
